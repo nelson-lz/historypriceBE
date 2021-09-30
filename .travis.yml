@@ -14,9 +14,6 @@ addons:
     token:
       secure: $SONAR2 # encrypted value of your token
 
-script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=nelson-lz_historypriceBE
 
 # services:
 # - mysql
@@ -24,18 +21,21 @@ script:
 # before_install:
 # - mysql -e 'CREATE DATABASE IF NOT EXISTS forge;'
 script:
+  - mvn verify
   #Test unitario y de integracion con cobertura (jacoco)
   - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=nelson-lz_historypriceBE
 
   #SONARCLOUD
-  - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=nelson-lpz-soft -Dsonar.login=$SONAR
+#  - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=nelson-lpz-soft -Dsonar.login=$SONAR
 
 #Deploy https://iwvg-ecosystem.herokuapp.com/api
-deploy:
-  provider: heroku
-  api_key:
-    secure: $HEROKU
-  on:
-    branch: master
-  app: historypricebe
+#deploy:
+#  provider: heroku
+#  api_key:
+#    secure: $HEROKU
+#  on:
+#    branch: master
+#  app: historypricebe
   #, por defecto, nombre del artefacto
