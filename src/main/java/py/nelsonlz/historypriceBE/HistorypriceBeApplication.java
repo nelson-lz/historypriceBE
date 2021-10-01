@@ -8,6 +8,7 @@ public class HistorypriceBeApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HistorypriceBeApplication.class, args);
+
 	}
 
 }

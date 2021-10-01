@@ -1,9 +1,10 @@
 language: java
+#jdk: openjdk11
 branches:
   only:
     - develop
     - /^release-[0-999].[0-999]$/
-    - master
+   # - master
 notifications:
   email:
     recipients:
@@ -12,8 +13,7 @@ addons:
   sonarcloud:
     organization: "nelson-lpz-soft"
     token:
-      secure: $SONAR2 # encrypted value of your token
-
+      secure: $SONAR_TOKEN # encrypted value of your token
 
 # services:
 # - mysql
@@ -26,16 +26,15 @@ script:
   - mvn org.jacoco:jacoco-maven-plugin:prepare-agent verify
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=nelson-lz_historypriceBE
-
   #SONARCLOUD
-#  - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=nelson-lpz-soft -Dsonar.login=$SONAR
+  #- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=nelson-lpz-soft -Dsonar.login=$SONAR
 
-#Deploy https://iwvg-ecosystem.herokuapp.com/api
-#deploy:
-#  provider: heroku
-#  api_key:
-#    secure: $HEROKU
-#  on:
-#    branch: master
-#  app: historypricebe
+#Deploy https://historyprice-be.herokuapp.com/
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU
+  on:
+    branch: develop
+  app: historyprice-be
   #, por defecto, nombre del artefacto
