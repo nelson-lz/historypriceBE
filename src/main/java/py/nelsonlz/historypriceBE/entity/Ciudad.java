@@ -12,15 +12,10 @@ public class Ciudad {
     @Column(name = "id", nullable = false)
     private long id;
 
-    @Lob
-    @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @Lob
-    @Column(name = "departamento", nullable = false)
     private String departamento;
 
-    @Column(name = "create_at")
     private Instant createAt;
 
     public Ciudad(){}
