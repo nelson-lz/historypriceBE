@@ -7,13 +7,11 @@ import java.util.Objects;
 public class CiudadDTO implements Serializable {
     private final long id;
     private final String descripcion;
-    private final String departamento;
     private final Instant createAt;
 
     public CiudadDTO(long id, String descripcion, String departamento, Instant createAt) {
         this.id = id;
-        this.descripcion = descripcion;
-        this.departamento = departamento;
+        this.descripcion = descripcion + " - " + departamento;
         this.createAt = createAt;
     }
 
@@ -23,10 +21,6 @@ public class CiudadDTO implements Serializable {
 
     public String getDescripcion() {
         return descripcion;
-    }
-
-    public String getDepartamento() {
-        return departamento;
     }
 
     public Instant getCreateAt() {
@@ -40,13 +34,12 @@ public class CiudadDTO implements Serializable {
         CiudadDTO entity = (CiudadDTO) o;
         return Objects.equals(this.id, entity.id) &&
                 Objects.equals(this.descripcion, entity.descripcion) &&
-                Objects.equals(this.departamento, entity.departamento) &&
                 Objects.equals(this.createAt, entity.createAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, descripcion, departamento, createAt);
+        return Objects.hash(id, descripcion, createAt);
     }
 
     @Override
@@ -54,7 +47,6 @@ public class CiudadDTO implements Serializable {
         return getClass().getSimpleName() + "(" +
                 "id = " + id + ", " +
                 "descripcion = " + descripcion + ", " +
-                "departamento = " + departamento + ", " +
                 "createAt = " + createAt + ")";
     }
 }
