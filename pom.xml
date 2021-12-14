@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>py.nelson-lz</groupId>
 	<artifactId>historypriceBE</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>${project.groupId}.${project.artifactId}</name>
 	<description>Se supone que es una aplicacion para registrar los precios de productos que el consumidor final paga realmente. El fin es guardar un historial de precios por tienda, localización y usuarios para luego compartir estos datos con la comunidad de datos abiertos.</description>
 	<url>http://github.com/nelson-lz/${project.artifactId}</url>
