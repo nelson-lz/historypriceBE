@@ -1,24 +1,34 @@
 package py.nelsonlz.historypriceBE.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.Instant;
 
 @Entity
-@Table(name = "ciudad")
-public class Ciudad {
+@Table(name = "unidad_medida")
+public class UnidadMedida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private long id;
 
+    @Lob
+    @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    private String departamento;
-
+    @Column(name = "create_at", nullable = false)
     private Instant createAt;
 
-    public Ciudad(){}
+    @Lob
+    @Column(name = "descri", nullable = false)
+    private String descri;
+
+    public String getDescri() {
+        return descri;
+    }
+
+    public void setDescri(String descri) {
+        this.descri = descri;
+    }
 
     public Instant getCreateAt() {
         return createAt;
@@ -26,14 +36,6 @@ public class Ciudad {
 
     public void setCreateAt(Instant createAt) {
         this.createAt = createAt;
-    }
-
-    public String getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(String departamento) {
-        this.departamento = departamento;
     }
 
     public String getDescripcion() {
