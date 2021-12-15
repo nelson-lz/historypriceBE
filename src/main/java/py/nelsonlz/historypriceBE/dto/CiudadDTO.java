@@ -19,7 +19,7 @@ public class CiudadDTO implements Serializable {
         this.createAt = createAt;
     }
     public CiudadDTO(Ciudad ciu){
-        this.id = Long.valueOf(ciu.getId());
+        this.id = ciu.getId();
         this.descripcion =  ciu.getDescripcion();
         this.departamento = ciu.getDepartamento();
         this.createAt = ciu.getCreateAt();

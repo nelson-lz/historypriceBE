@@ -15,7 +15,7 @@ public class MarcaDTO implements Serializable {
     private final Instant createAt;
 
     public MarcaDTO(Marca marca){
-        this.id = Long.valueOf(marca.getId());
+        this.id = marca.getId();
         this.descripcion = marca.getDescripcion();
         this.img = marca.getImg();
         this.createAt = marca.getCreateAt();
