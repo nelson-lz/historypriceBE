@@ -9,14 +9,10 @@ public class Marca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private long id;
+    private Integer id;
 
-    @Lob
-    @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @Lob
-    @Column(name = "img")
     private String img;
 
     @Column(name = "create_at")
@@ -46,7 +42,7 @@ public class Marca {
         this.descripcion = descripcion;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
