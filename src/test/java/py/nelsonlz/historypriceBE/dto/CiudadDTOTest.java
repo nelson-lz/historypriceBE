@@ -1,6 +1,7 @@
 package py.nelsonlz.historypriceBE.dto;
 
 import lombok.extern.log4j.Log4j2;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,17 @@ public class CiudadDTOTest {
     CiudadDAO dao;
     Ciudad ciudad = new Ciudad();
     CiudadDTO ciuDto;
-    @Test
-    void checkConvertionEntityInDto(){
+
+    @BeforeEach
+    void init(){
         ciudad = dao.findById(ID).get();
         log.info(ciudad.getDescripcion());
         ciuDto= new CiudadDTO(ciudad);
         log.info(ciuDto.toString());
+    }
+
+    @Test
+    void checkConvertionEntityInDto(){
         assertEquals(ciudad.getDescripcion(),ciuDto.getDescripcion());
     }
 }

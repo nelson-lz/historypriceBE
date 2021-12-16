@@ -2,6 +2,7 @@ package py.nelsonlz.historypriceBE.dto;
 
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,12 +18,15 @@ public class UsuarioDTOTest {
     Usuario usuario = new Usuario();
     static final Integer IDENTIFICADOR = 1;
 
-    @Test
-    void testUsuarioPorId(){
+    @BeforeEach
+    void init(){
         usuario = dao.findById(IDENTIFICADOR).get();
         usuDto = new UsuarioDTO(usuario.getId(),usuario.getNombre(),usuario.getEmail(),usuario.getPermisos(),usuario.getCreateAt());
-        Usuario usu = dao.findById(IDENTIFICADOR).get();
-        log.info(usuDto.getClass() + " - " + usu.getClass());
-        Assertions.assertEquals(usu.getEmail(), usuDto.getEmail());
+        log.info(usuDto.getClass() + " - " + usuario.getClass());
+    }
+
+    @Test
+    void testUsuarioPorId(){
+        Assertions.assertEquals(usuario.getEmail(), usuDto.getEmail());
     }
 }

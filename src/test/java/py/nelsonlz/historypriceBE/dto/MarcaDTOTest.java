@@ -2,6 +2,7 @@ package py.nelsonlz.historypriceBE.dto;
 
 import lombok.extern.log4j.Log4j2;
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,11 +19,14 @@ public class MarcaDTOTest {
     private Marca marca = new Marca();
     private MarcaDTO marDto;
     private static final Integer ID = 1;
+    @BeforeEach
+    void init(){
+        marca = dao.findById(ID).get();
+        marDto = new MarcaDTO(marca);
+    }
 
     @Test
     void convertMarcaInDTO(){
-        marca = dao.findById(ID).get();
-        marDto = new MarcaDTO(marca);
         assertEquals(marca.getDescripcion(),marDto.getDescripcion());
     }
 

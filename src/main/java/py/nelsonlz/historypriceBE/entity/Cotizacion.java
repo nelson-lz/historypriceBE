@@ -10,7 +10,7 @@ public class Cotizacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private long id;
+    private Integer id;
 
     @Column(name = "fecha", nullable = false)
     private Instant fecha;
@@ -78,7 +78,7 @@ public class Cotizacion {
         this.fecha = fecha;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
