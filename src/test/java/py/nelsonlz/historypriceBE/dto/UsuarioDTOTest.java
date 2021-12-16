@@ -21,7 +21,7 @@ public class UsuarioDTOTest {
     @BeforeEach
     void init(){
         usuario = dao.findById(IDENTIFICADOR).get();
-        usuDto = new UsuarioDTO(usuario.getId(),usuario.getNombre(),usuario.getEmail(),usuario.getPermisos(),usuario.getCreateAt());
+        usuDto = new UsuarioDTO(usuario.getId(),usuario.getNombre(),usuario.getEmail(),usuario.getPermisos(),usuario.getCreateAt(), usuario.getCiudad());
         log.info(usuDto.getClass() + " - " + usuario.getClass());
     }
 

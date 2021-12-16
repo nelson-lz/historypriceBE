@@ -1,7 +1,5 @@
 package py.nelsonlz.historypriceBE.entity;
 
-import py.nelsonlz.historypriceBE.entity.Marca;
-
 import javax.persistence.*;
 import java.time.Instant;
 
@@ -11,13 +9,11 @@ public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private long id;
+    private Integer id;
 
-    @Lob
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Lob
     @Column(name = "codigo_barras")
     private String codigoBarras;
 
@@ -25,22 +21,18 @@ public class Producto {
     @JoinColumn(name = "marca")
     private Marca marca;
 
-    @Lob
     @Column(name = "img1")
     private String img1;
 
-    @Lob
     @Column(name = "img2")
     private String img2;
 
-    @Lob
     @Column(name = "img3")
     private String img3;
 
     @Column(name = "creat_at")
     private Instant creatAt;
 
-    @Lob
     @Column(name = "contenido_neto")
     private String contenidoNeto;
 
@@ -108,7 +100,7 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 

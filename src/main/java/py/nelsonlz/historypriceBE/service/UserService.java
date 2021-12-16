@@ -26,7 +26,7 @@ public class UserService {
     }
 
     private UsuarioDTO convertirEntityToDto(Usuario usuario){
-        UsuarioDTO usuDto = new UsuarioDTO(new Long(usuario.getId()),usuario.getNombre(), usuario.getEmail(), usuario.getPermisos(), usuario.getCreateAt());
+        UsuarioDTO usuDto = new UsuarioDTO(usuario.getId(),usuario.getNombre(), usuario.getEmail(), usuario.getPermisos(), usuario.getCreateAt(),usuario.getCiudad());
         return usuDto;
     }
 }
