@@ -9,16 +9,14 @@ public class UnidadMedida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private long id;
+    private Integer id;
 
-    @Lob
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
     @Column(name = "create_at", nullable = false)
     private Instant createAt;
 
-    @Lob
     @Column(name = "descri", nullable = false)
     private String descri;
 
@@ -46,7 +44,7 @@ public class UnidadMedida {
         this.descripcion = descripcion;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
