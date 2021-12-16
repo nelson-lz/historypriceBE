@@ -1,6 +1,7 @@
 package py.nelsonlz.historypriceBE.dto;
 
 import lombok.Data;
+import py.nelsonlz.historypriceBE.entity.Ciudad;
 import py.nelsonlz.historypriceBE.entity.Tienda;
 
 import java.io.Serializable;
@@ -11,7 +12,7 @@ public class TiendaDTO implements Serializable {
     private final long id;
     private final String descripcion;
     private final String ubicacionGps;
-    private final Integer ciudad;
+    private final Ciudad ciudad;
     private final String img1;
     private final String img2;
     private final Instant createAt;

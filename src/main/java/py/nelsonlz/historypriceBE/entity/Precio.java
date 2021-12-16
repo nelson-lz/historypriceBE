@@ -10,22 +10,30 @@ public class Precio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private long id;
+    private Integer id;
 
-    @Column(name = "tienda", nullable = false)
-    private Integer tienda;
+    @ManyToOne
+    @JoinColumn(name = "tienda", nullable = false)
+    private Tienda tienda;
 
-    @Column(name = "usuario", nullable = false)
-    private Integer usuario;
+    @ManyToOne
+    @JoinColumn(name = "usuario", nullable = false)
+    private Usuario usuario;
 
     @Column(name = "fecha")
     private Instant fecha;
 
-    @Column(name = "cotizacion", nullable = false)
-    private Integer cotizacion;
+    @ManyToOne
+    @JoinColumn(name = "cotizacion", nullable = false)
+    private Cotizacion cotizacion;
 
-    @Column(name = "unidad_medida", nullable = false)
-    private Integer unidadMedida;
+    @ManyToOne
+    @JoinColumn(name = "unidad_medida")
+    private UnidadMedida unidadMedida;
+
+    @ManyToOne
+    @JoinColumn(name = "producto", nullable = false)
+    private Producto producto;
 
     @Column(name = "cantidad", nullable = false)
     private Double cantidad;
@@ -42,14 +50,11 @@ public class Precio {
     @Column(name = "precio_ar", precision = 131089)
     private BigDecimal precioAr;
 
-    @Column(name = "producto", nullable = false)
-    private Integer producto;
-
-    public Integer getProducto() {
+    public Producto getProducto() {
         return producto;
     }
 
-    public void setProducto(Integer producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
 
@@ -93,19 +98,19 @@ public class Precio {
         this.cantidad = cantidad;
     }
 
-    public Integer getUnidadMedida() {
+    public UnidadMedida getUnidadMedida() {
         return unidadMedida;
     }
 
-    public void setUnidadMedida(Integer unidadMedida) {
+    public void setUnidadMedida(UnidadMedida unidadMedida) {
         this.unidadMedida = unidadMedida;
     }
 
-    public Integer getCotizacion() {
+    public Cotizacion getCotizacion() {
         return cotizacion;
     }
 
-    public void setCotizacion(Integer cotizacion) {
+    public void setCotizacion(Cotizacion cotizacion) {
         this.cotizacion = cotizacion;
     }
 
@@ -117,23 +122,23 @@ public class Precio {
         this.fecha = fecha;
     }
 
-    public Integer getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Integer usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    public Integer getTienda() {
+    public Tienda getTienda() {
         return tienda;
     }
 
-    public void setTienda(Integer tienda) {
+    public void setTienda(Tienda tienda) {
         this.tienda = tienda;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 

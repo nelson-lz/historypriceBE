@@ -17,8 +17,9 @@ public class Tienda {
     @Column(name = "ubicacion_gps")
     private String ubicacionGps;
 
-    @Column(name = "ciudad", nullable = false)
-    private Integer ciudad;
+    @ManyToOne
+    @JoinColumn(name = "ciudad", nullable = false)
+    private Ciudad ciudad;
 
     @Column(name = "img1")
     private String img1;
@@ -53,11 +54,11 @@ public class Tienda {
         this.img1 = img1;
     }
 
-    public Integer getCiudad() {
+    public Ciudad getCiudad() {
         return ciudad;
     }
 
-    public void setCiudad(Integer ciudad) {
+    public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
 
