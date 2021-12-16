@@ -9,24 +9,20 @@ public class Tienda {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private long id;
+    private Integer id;
 
-    @Lob
     @Column(name = "descripcion", nullable = false)
     private String descripcion;
 
-    @Lob
     @Column(name = "ubicacion_gps")
     private String ubicacionGps;
 
     @Column(name = "ciudad", nullable = false)
     private Integer ciudad;
 
-    @Lob
     @Column(name = "img1")
     private String img1;
 
-    @Lob
     @Column(name = "img2")
     private String img2;
 
@@ -81,7 +77,7 @@ public class Tienda {
         this.descripcion = descripcion;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
