@@ -19,6 +19,12 @@ public class Ciudad {
     private Instant createAt;
 
     public Ciudad(){}
+    public Ciudad(Integer id, String descripcion, String departamento, Instant createAt){
+        this.id = id;
+        this.descripcion = descripcion;
+        this.departamento = departamento;
+        this.createAt = createAt;
+    }
 
     public Instant getCreateAt() {
         return createAt;

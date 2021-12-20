@@ -7,20 +7,20 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import py.nelsonlz.historypriceBE.entity.Usuario;
-import py.nelsonlz.historypriceBE.repository.UsuarioDAO;
+import py.nelsonlz.historypriceBE.service.UsuarioService;
 
 @Log4j2
 @SpringBootTest
 public class UsuarioDTOTest {
     @Autowired
-    UsuarioDAO dao;
+    private UsuarioService srv;
     UsuarioDTO usuDto;
     Usuario usuario = new Usuario();
     static final Integer IDENTIFICADOR = 1;
 
     @BeforeEach
     void init(){
-        usuario = dao.findById(IDENTIFICADOR).get();
+        usuario = srv.findById(IDENTIFICADOR).get();
         usuDto = new UsuarioDTO(usuario.getId(),usuario.getNombre(),usuario.getEmail(),usuario.getPermisos(),usuario.getCreateAt(), usuario.getCiudad());
         log.info(usuDto.getClass() + " - " + usuario.getClass());
     }

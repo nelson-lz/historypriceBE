@@ -44,13 +44,10 @@
 		<!-- Sonarcloud-->
 		<sonar.organization>nelson-lpz-soft</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<spring.version>2.5.5</spring.version>
-		<swagger.version>2.1.11</swagger.version>
+		<spring.version>^2.5.5</spring.version>
 		<lombok.version>1.18.22</lombok.version>
-		<!-- OpenAPI -->
-		<springdoc-openapi-webflux-ui.version>1.4.6</springdoc-openapi-webflux-ui.version>
 		<!-- various -->
-		<jwt.version>3.4.1</jwt.version>
+		<jwt.version>^3.4.1</jwt.version>
 		<swagger.version>3.0.0</swagger.version>
 	</properties>
 	<dependencies>
@@ -98,6 +95,11 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${swagger.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-data-rest</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
 		<!-- TEST junit -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -105,15 +107,29 @@
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-test</artifactId>
-			<version>2.5.5</version>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>2.6.1</version>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.7.2</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.7.2</version>
 			<scope>test</scope>
 		</dependency>

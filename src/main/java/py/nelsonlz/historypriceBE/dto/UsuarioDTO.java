@@ -1,6 +1,7 @@
 package py.nelsonlz.historypriceBE.dto;
 
 import py.nelsonlz.historypriceBE.entity.Ciudad;
+import py.nelsonlz.historypriceBE.entity.Usuario;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -11,7 +12,7 @@ public class UsuarioDTO implements Serializable {
     private final String nombre;
     private final String email;
     private final Integer permisos;
-    private final Ciudad ciudad;
+    private final CiudadDTO ciudad;
     private final Instant createAt;
 
     public UsuarioDTO(long id, String nombre, String email, Integer permisos, Instant createAt, Ciudad ciu) {
@@ -19,8 +20,16 @@ public class UsuarioDTO implements Serializable {
         this.nombre = nombre;
         this.email = email;
         this.permisos = permisos;
-        this.ciudad = ciu;
+        this.ciudad = new CiudadDTO(ciu);
         this.createAt = createAt;
+    }
+    public UsuarioDTO(Usuario usu) {
+        this.id = usu.getId();
+        this.nombre = usu.getNombre();
+        this.email = usu.getEmail();
+        this.permisos = usu.getPermisos();
+        this.ciudad = new CiudadDTO(usu.getCiudad());
+        this.createAt = usu.getCreateAt();
     }
 
     public long getId() {
@@ -39,7 +48,7 @@ public class UsuarioDTO implements Serializable {
         return permisos;
     }
 
-    public Ciudad getCiudad() {
+    public CiudadDTO getCiudad() {
         return ciudad;
     }
 
