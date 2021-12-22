@@ -25,15 +25,22 @@ public class UsuarioService implements UsuarioDAO{
     public List<UsuarioDTO> getAllUsers(){
         return usuarioDAO.findAll()
                 .stream()
-                .map(this::convertirEntityToDto)
+                .map(UsuarioDTO::new)
                 .collect(Collectors.toList());
     }
-
-    private UsuarioDTO convertirEntityToDto(Usuario usuario){
-        UsuarioDTO usuDto = new UsuarioDTO(usuario);
-        return usuDto;
+    public UsuarioDTO login(Usuario usuario){
+        Usuario usu =  this.findByEmail(usuario.getEmail());
+        if(usu.getPass() == usuario.getPass()){
+            return new UsuarioDTO(usu);
+        } else {
+            return null;
+        }
     }
 
+    @Override
+    public <S extends Usuario> boolean exists(Example<S> example) {
+        return false;
+    }
     @Override
     public List<Usuario> findAll() {
         return null;
@@ -158,7 +165,7 @@ public class UsuarioService implements UsuarioDAO{
     }
 
     @Override
-    public <S extends Usuario> boolean exists(Example<S> example) {
-        return false;
+    public Usuario findByEmail(String email) {
+        return usuarioDAO.findByEmail(email);
     }
 }

@@ -6,4 +6,5 @@ import py.nelsonlz.historypriceBE.entity.Usuario;
 
 @Repository
 public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
+    Usuario findByEmail(String email);
 }
