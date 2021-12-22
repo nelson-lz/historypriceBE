@@ -44,13 +44,10 @@
 		<!-- Sonarcloud-->
 		<sonar.organization>nelson-lpz-soft</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<spring.version>2.5.5</spring.version>
-		<swagger.version>2.1.11</swagger.version>
+		<spring.version>^2.5.5</spring.version>
 		<lombok.version>1.18.22</lombok.version>
-		<!-- OpenAPI -->
-		<springdoc-openapi-webflux-ui.version>1.4.6</springdoc-openapi-webflux-ui.version>
 		<!-- various -->
-		<jwt.version>3.4.1</jwt.version>
+		<jwt.version>^3.4.1</jwt.version>
 		<swagger.version>3.0.0</swagger.version>
 	</properties>
 	<dependencies>
@@ -96,6 +93,11 @@
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${swagger.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-data-rest</artifactId>
 			<version>${swagger.version}</version>
 		</dependency>
 		<!-- TEST junit -->

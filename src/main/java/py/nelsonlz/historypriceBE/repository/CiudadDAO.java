@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface CiudadDAO extends JpaRepository<Ciudad, Integer> {
     List<Ciudad> findByDescripcion(String descripcion);
+    List<Ciudad> findByDescripcionContainingIgnoreCase(String descripcion);
 }
